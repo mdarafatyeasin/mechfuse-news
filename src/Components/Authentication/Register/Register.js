@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
@@ -9,8 +9,8 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('')
-
     const [ createUserWithEmailAndPassword, user, loading ] = useCreateUserWithEmailAndPassword(auth);
+    const navigate = useNavigate();
 
     const handleEmail = e => {
         setEmail(e.target.value);
@@ -31,6 +31,9 @@ const Register = () => {
             return;
         }
         createUserWithEmailAndPassword(email, password)
+    }
+    if(user){
+        navigate('/home');
     }
 
     return (
