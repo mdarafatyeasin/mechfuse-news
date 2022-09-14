@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
+import './NavBar.css'
 const NavBar = () => {
     const [user] = useAuthState(auth)
     const handleLogOut = () =>{
@@ -10,7 +11,7 @@ const NavBar = () => {
     }
     return (
         <div>
-            <nav>
+            <nav className='navbar'>
                 <Link to="/home">Home</Link>
                 {
                     user ? "" : <Link to="/register">Register</Link>

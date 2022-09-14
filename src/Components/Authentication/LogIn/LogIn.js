@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import './LogIn.css'
+import { Icon } from '@iconify/react';
 
 const LogIn = () => {
     const [email, setEmail] = useState('')
@@ -36,33 +38,44 @@ const LogIn = () => {
 
 
     return (
-        <div>
-            <h1>this is log in page</h1>
-            <form onSubmit={handleUserLogIn}>
-                <div className="input-group">
-                    <div className="email">
-                        <input onBlur={handleEmail} type="email" placeholder='Enter Your Email' />
+        <div className='authentication'>
+
+            <div className="input-form">
+                <h2>Please Login</h2>
+                <p className='description'>Hey, Enter your details to get log in to your account.</p>
+                <form onSubmit={handleUserLogIn}>
+                    <div className="input-group">
+                        <div className="email">
+                            <input className='input' onBlur={handleEmail} type="email" placeholder='Enter Your Email' />
+                        </div>
+                        <div className="password">
+                            <input className='input' onBlur={handlePassword} type="password" placeholder='Enter Your Password' />
+                        </div>
                     </div>
-                    <div className="password">
-                        <input onBlur={handlePassword} type="password" placeholder='Enter Your Password' />
+                    <p>{error?.message}</p>
+                    {
+                        loading && <p>Loading</p>
+                    }
+                    <p>Having trouble in Log in?</p>
+                    <div className="button">
+                        <input className='input-button' type="submit" value="Log In" />
                     </div>
-                </div>
-                <p>{error?.message}</p>
-                {
-                    loading && <p>Loading</p>
-                }
-                <p>New to mechfuse-news? <Link to="/register">Register Now</Link></p>
-                <input type="submit" value="Log In" />
-                <div className="social">
-                    <div className="divider">
-                        <div></div>
-                        <div></div>
+                    <div className="social">
+                        <div className="divider">
+                            <div></div>
+                            <p>Or Log in with</p>
+                            <div></div>
+                        </div>
+                        <div className='social-buttons'>
+                            <button className='social-button' onClick={() => signInWithGoogle()}>
+                                <Icon icon="ant-design:google-outlined" />
+                                <p>Google</p>
+                            </button>
+                        </div>
+                        <p className='toggle'>New to mechfuse-news? <Link to="/register">Register Now</Link></p>
                     </div>
-                    <button
-                        onClick={() => signInWithGoogle()}
-                        className="btn btn-outline"> Continue with google</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     );
 };

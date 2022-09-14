@@ -1,0 +1,76 @@
+.authentication {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../../../Asset/loginBackgroud.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-form {
+    width: 450px;
+    /* height: 500px; */
+    background-color: white;
+    border-radius: 20px;
+}
+.description{
+    margin-bottom: 30px;
+    padding: 0 80px;
+}
+.input-form form {
+    width: 100%;
+}
+
+.input {
+    width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+.input-button{
+    width: 85%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FDC886;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: 15px;
+}
+.divider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divider div{
+    width: 10%;
+    height: 1px;
+    background-color: black;
+}
+.divider p{
+    margin: 20px 5px;
+}
+.social-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 32px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+.social-button p{
+    margin-left: 10px;
+}
+.social-buttons{
+    display: flex;
+    justify-content: center;
+}
+.toggle{
+    padding-bottom: 27px;
+}
