@@ -1,0 +1,15 @@
+.post{
+    display: flex;
+    margin-bottom: 30px;
+}
+.post img{
+    width: 150px;
+    height: 150px;
+}
+.description p{
+    text-align: left;
+    padding: 0;
+}
+.text{
+    padding-left: 30px;
+}

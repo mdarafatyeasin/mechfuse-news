@@ -2,8 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import LogInBox from '../Authentication/LogIn/LogInBox';
 import Post from './Post'
 
 
@@ -16,11 +16,12 @@ const News = () => {
         .then(res => res.json())
         .then(data => setNews(data))
     }, [])
-    console.log(news)
+    // console.log(news)
     return (
         <div>
+            <h1>Welcome to our news feed.</h1>
             {
-                user ? news.articles.map(post => <Post post = {post}></Post>) : <Link to="/login">Log In</Link>
+                user ? news.articles.map(post => <Post post = {post}></Post>) : <LogInBox/>
             }
         </div>
     );

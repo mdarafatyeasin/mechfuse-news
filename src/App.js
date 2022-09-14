@@ -9,13 +9,17 @@ import News from './Components/News/News';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <NavBar />
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/home' element={<Home/>}></Route>
-        <Route path='/home' element={<Home/>}>
-          <Route path='/home/news' element={<News/>}></Route>
+        <Route path='/home' element={<Home />}></Route>
+        <Route path='/home' element={<Home />}>
+          <Route path='/home/news' element={
+            <RequireAuth>
+              <News />
+            </RequireAuth>
+          }></Route>
         </Route>
         <Route path='/login' element={<LogIn />}></Route>
         <Route path='/register' element={<Register />}></Route>

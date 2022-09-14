@@ -1,10 +1,10 @@
 import React from 'react';
 import News from '../News/News';
+import './Home.css'
 
 const Home = () => {
     return (
-        <div>
-            <h1>This is home Page</h1>
+        <div className='landing-page'>
             <News/>
         </div>
     );

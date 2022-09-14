@@ -6,19 +6,22 @@ import { signOut } from 'firebase/auth';
 import './NavBar.css'
 const NavBar = () => {
     const [user] = useAuthState(auth)
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
         signOut(auth);
     }
     return (
-        <div>
-            <nav className='navbar'>
-                <Link to="/home">Home</Link>
-                {
-                    user ? "" : <Link to="/register">Register</Link>
-                }
-                {
-                    user ? <button onClick={handleLogOut}>Log Out</button>: <Link to="/login">Log In</Link>
-                }
+        <div className='navbar'>
+            <nav>
+                <ul>
+                        {
+                            user ? "" :<li><Link to="/register">Register</Link></li> 
+                        }
+                    <li>
+                        {
+                            user ? <button onClick={handleLogOut}>Log Out</button> : <Link to="/login">Log In</Link>
+                        }
+                    </li>
+                </ul>
             </nav>
         </div>
     );
