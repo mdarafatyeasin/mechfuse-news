@@ -10,19 +10,24 @@ const NavBar = () => {
         signOut(auth);
     }
     return (
-        <div className='navbar'>
-            <nav>
-                <ul>
-                        {
-                            user ? "" :<li><Link to="/register">Register</Link></li> 
-                        }
-                    <li>
-                        {
-                            user ? <button onClick={handleLogOut}>Log Out</button> : <Link to="/login">Log In</Link>
-                        }
-                    </li>
-                </ul>
-            </nav>
+        <div className="navbar-section">
+            <div className='navbar'>
+                <nav>
+                    <Link to="/home"><h1>Logo</h1></Link>
+                    <div className='menu-bar'>
+                        <ul>
+                            {
+                                user ? "" : <li><Link to="/register">Register</Link></li>
+                            }
+                            <li>
+                                {
+                                    user ? <button className='logOut' onClick={handleLogOut}>Log Out</button> : <Link to="/login">Log In</Link>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
         </div>
     );
 };
