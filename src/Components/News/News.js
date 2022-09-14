@@ -11,10 +11,10 @@ const News = () => {
     const [ news, setNews ] = useState([])
     const [user] = useAuthState(auth)
     useEffect(()=>{
-        const url = 'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=55f124beb7584259833b199d76188674'
+        const url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=55f124beb7584259833b199d76188674'
         fetch (url)
         .then(res => res.json())
-        .then(data => setNews(data.articles))
+        .then(data => setNews(data))
     }, [])
 
     return (
