@@ -27,10 +27,10 @@ const Register = () => {
 
     const handleCreateUser = e => {
         e.preventDefault();
-        if (password !== confirmPassword) {
-            setError('Your two password did not match');
-            return;
-        }
+        // if (password !== confirmPassword) {
+        //     setError('Your two password did not match');
+        //     return;
+        // }
         createUserWithEmailAndPassword(email, password)
     }
     if (user) {
@@ -38,9 +38,9 @@ const Register = () => {
     }
         // google ----------------------
         const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-        // if (loading) {
-        //     return <p>Loading...</p>;
-        // }
+        if (loading) {
+            return <p>Loading...</p>;
+        }
         if (user || gUser) {
             navigate('/home');
         }
