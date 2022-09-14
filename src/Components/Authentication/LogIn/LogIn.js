@@ -29,9 +29,9 @@ const LogIn = () => {
     }
     // google ----------------------
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    // if (loading) {
-    //     return <p>Loading...</p>;
-    // }
+    if (loading || gLoading) {
+        return <p>Loading...</p>;
+    }
     if (user || gUser) {
         navigate('/home');
     }
@@ -40,7 +40,7 @@ const LogIn = () => {
     return (
         <div className='authentication'>
 
-            <div className="input-form">
+            <div className="input-form" data-aos="flip-right">
                 <h2>Please Login</h2>
                 <p className='description'>Hey, Enter your details to get log in to your account.</p>
                 <form onSubmit={handleUserLogIn}>

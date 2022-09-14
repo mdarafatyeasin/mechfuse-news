@@ -6,7 +6,7 @@ const Post = (props) => {
     const { title, urlToImage, description, url } = props.post
     return (
         <div>
-            <div className="post">
+            <div className="post" data-aos="zoom-in-left">
                 <div className="img">
                     <img src={urlToImage} alt="" />
                 </div>

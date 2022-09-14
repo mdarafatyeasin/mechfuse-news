@@ -47,7 +47,7 @@ const Register = () => {
 
     return (
         <div className='authentication'>
-            <div className="input-form">
+            <div className="input-form" data-aos="flip-left">
                 <h1>Create a new Account</h1>
                 <p className='description'>Hey, Enter your details to get a new account.</p>
                 <form onSubmit={handleCreateUser}>
