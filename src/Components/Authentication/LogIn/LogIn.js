@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
 const LogIn = () => {
@@ -25,10 +25,12 @@ const LogIn = () => {
         e.preventDefault();
         signInWithEmailAndPassword(email, password)
     }
+    // google ----------------------
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     // if (loading) {
     //     return <p>Loading...</p>;
     // }
-    if (user) {
+    if (user || gUser) {
         navigate('/home');
     }
 
@@ -49,9 +51,18 @@ const LogIn = () => {
                 {
                     loading && <p>Loading</p>
                 }
+                <p>New to mechfuse-news? <Link to="/register">Register Now</Link></p>
                 <input type="submit" value="Log In" />
+                <div className="social">
+                    <div className="divider">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <button
+                        onClick={() => signInWithGoogle()}
+                        className="btn btn-outline"> Continue with google</button>
+                </div>
             </form>
-            <p>New to mechfuse-news? <Link to="/register">Register Now</Link></p>
         </div>
     );
 };
