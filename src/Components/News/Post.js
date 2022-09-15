@@ -2,7 +2,7 @@ import React from 'react';
 import './Post.css'
 
 const Post = (props) => {
-    console.log(props.post)
+    // console.log(props.post)
     const { title, urlToImage, description, url } = props.post
     return (
         <div>

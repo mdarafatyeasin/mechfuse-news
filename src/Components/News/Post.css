@@ -13,3 +13,8 @@
 .text{
     padding-left: 30px;
 }
+.spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
